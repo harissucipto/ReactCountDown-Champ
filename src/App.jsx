@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Clock from './Clock';
 import './App.css';
 
 class App extends Component {
@@ -11,7 +12,6 @@ class App extends Component {
   }
 
   changeDeadline() {
-    console.log(this.state);
     this.setState({deadline: this.state.newDeadline});
   }
 
@@ -19,12 +19,9 @@ class App extends Component {
     return(
       <div className="App">
         <div className="App-title">Countdown to {this.state.deadline}</div>
-        <div>
-          <div className="Clock-days">14 Days</div>
-          <div className="Clock-hours">30 hours</div>
-          <div className="Clock-minutes">15 Minutes</div>
-          <div className="Clock-seconds">20 Seconds</div>
-        </div>
+        <Clock
+          deadline={this.state.deadline}
+        />
         <div>
           <input
             placeholder="new date"
